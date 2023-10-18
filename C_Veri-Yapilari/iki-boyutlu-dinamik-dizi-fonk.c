@@ -14,7 +14,7 @@ void iki_boyutlu_matris_olustur(int*** matris, int satir_sayisi, int sutun_sayis
 
 	for (int i = 0; i < satir_sayisi; i++)
 	{
-		*(*matris + i) = (int*)malloc(sizeof(int) * satir_sayisi);
+		*(*matris + i) = (int*)malloc(sizeof(int) * sutun_sayisi);
 
 		for (int j = 0; j < sutun_sayisi; j++)
 		{
