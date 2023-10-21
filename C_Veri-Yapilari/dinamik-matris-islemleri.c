@@ -33,8 +33,8 @@ void matris_yaz(int** matris, int satir, int sutun)
 	printf("\n");
 }
 
-int** matris_topla(int** matris1, int satir1, int sutun1,
-				   int** matris2, int satir2, int sutun2)
+int** matris_topla(int** matris1, int satir1, int sutun1, 
+	int** matris2, int satir2, int sutun2)
 {
 	int** matris3;
 
@@ -61,8 +61,8 @@ int** matris_topla(int** matris1, int satir1, int sutun1,
 	}
 }
 
-int matris_carp(int** matris1, int satir1, int sutun1,
-			    int** matris2, int satir2, int sutun2)
+int** matris_carp(int** matris1, int satir1, int sutun1, 
+	int** matris2, int satir2, int sutun2)
 {
 	int** matris3;
 
@@ -117,13 +117,13 @@ int main()
 	matris_yaz(matris1, satir1, sutun1);
 	matris_yaz(matris2, satir2, sutun2);
 
-	matris3 = matris_topla(matris1, satir1, sutun1,
-						   matris2, satir2, sutun2);
+	matris3 = matris_topla(matris1, satir1, sutun1, 
+		matris2, satir2, sutun2);
 
 	matris_yaz(matris3, satir1, sutun1);
 
 	matris4 = matris_carp(matris1, satir1, sutun1,
-						  matris2, satir2, sutun2);
+		matris2, satir2, sutun2);
 
 	matris_yaz(matris3, satir1, sutun2);
 
