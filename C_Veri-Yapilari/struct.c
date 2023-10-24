@@ -95,19 +95,58 @@ int main()
 	display_student(s1);
 
 	printf("-------------------- \n");
+	// printf("-------------------- \n"); arasındaki kodlar bende nedense çalışmıyor.
 
-	person* ptr; // struct tipinde pointer oluşturduk.
+	// person* ptr = &p1; // struct tipinde pointer oluşturduk.
 	// int* ptr ile aslında aynı. Sonuçta person struct'ı da bir veri tipi
 
-	ptr = &p1; // Person struct'ından ürettiğimiz p1 değişkeninin adresini struct pointer'ına atadık.
+	// ptr = &p1; // Person struct'ından ürettiğimiz p1 değişkeninin adresini struct pointer'ına atadık.
 	
 	// Normalde pointer'ın içerisindeki adresteki değere ulaşmak için pointer'ın başına * koyarız ve içerisine gireriz
 	// fakat struct pointer'da böyle bir şey yapamayız çünkü içerisinde sadece bir adres yok,
 	// birden fazla değişken olduğu için birden fazla adres var.
 	// Bu sorunun çözümü "ptr->name" şeklindedir.
 
-	printf("Person's name: %s \n", ptr->name);
-	printf("Person's age: %d \n", ptr->age);
+	// printf("Person's name: %s \n", ptr->name);
+	// printf("Person's age: %d \n", ptr->age);
+
+	printf("-------------------- \n");
+
+	person p;
+
+	p.age = 20;
+	p.name = "Ahmet";
+
+	// Struct'lar tıpkı diziler gibi ilk elemanın adresine kayıtlıdırlar.
+	// Struct içerisinde ilk hangi değişken varsa o değşikenin adresi ile struct'ın adresi aynıdır. 
+	printf("Struct'ın adresi: %p \n", &p);
+	printf("Struct içerisindeki name'in adresi: %p \n", &(p.name));
+	printf("Struct içerisindeki age'in adresi: %p \n", &(p.age));
+
+	person* prs;
+	prs = &p;
+
+	printf("p.age'in adresi: %p \n", &(prs->age));
+
+	printf("-------------------- \n");
+
+	student* std;
+
+	std = (student*)malloc(sizeof(student));
+
+	std->schoolNumber = 2005;
+	std->p.name = "Kyle";
+	std->p.age = 21;
+
+	// struct Student içerisindeki struct Person p; yi struct Person* p; şeklinde pointer olarak tanımlarsak
+	// std->p.name = "Kyle"; olarak değil std->p->name = "Kyle"; olarak tanımlamalıyız.
+
+	printf("std pointer'ın adresi: %p \n", &std);
+	printf("student'ın adresi: %p \n", std);
+	printf("student'ın schoolNumber'ının adresi: %p \n", &(std->schoolNumber));
+	printf("student'ın person'ının adresi: %p \n", &(std->p));
+	printf("student'ın person'ının name'inin adresi: %p \n", &(std->p.name));
+	printf("student'ın person'ının age'inin adresi: %p \n", &(std->p.age));
 
 	return 0;
 }
