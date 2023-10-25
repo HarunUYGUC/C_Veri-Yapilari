@@ -14,11 +14,42 @@ typedef struct Node
 	struct Node* next; // hem de kendi cinsinden bir pointer'ı tutarak bir sonraki struct'ı çağıracağız.
 } node;
 
+void write_linked_list(struct Node* n) // n yerine head_of_list veya root da yazılabilir.
+{
+	node* temp = n; // Asıl linked list'deki adresleri kaybetmemek için
+	// bu adresleri tutucu bir değişkene atıyoruz. Çünkü önemli olan ilk elemanın adresidir.
+
+	// temp yerine de iter yazılabilir. Bu da geçici demektir.
+	while (temp != NULL)
+	{
+		printf("%d", temp->data);
+		temp = temp->next;
+	}
+}
+
 int main()
 {
 	node* n = (node*)malloc(sizeof(node));
 	n->data = 2;
 	n->next = NULL; // n->next eğer bağlı listenin son elemanıysa NULL'a eşit olur.
+
+	n->next = (node*)malloc(sizeof(node));
+	n->next->data = 3;
+	n->next->next = NULL;
+
+	printf("%d \n", n->data);
+	printf("%d \n", n->next->data);
+
+	printf("----------------- \n");
+
+	printf("%p \n", &n);
+	printf("%p \n", n);
+	printf("%p \n", &(n->data));
+	printf("%p \n", &(n->next));
+
+	printf("----------------- \n");
+
+	write_linked_list(n);
 
 	return 0;
 }
