@@ -1,4 +1,4 @@
-// Bir sorun var ama nedenini bir türlü anlayamadım. Sonuçlar biraz fazla ya da eksik çıkıyor.
+// Bir sorun var ama nedenini bir tÃ¼rlÃ¼ anlayamadÃ½m. SonuÃ§lar biraz fazla ya da eksik Ã§Ã½kÃ½yor
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -56,7 +56,7 @@ int** matris_topla(int** matris1, int satir1, int sutun1,
 	}
 	else
 	{
-		printf("İki matrisin satır ve sutun sayısı eşit olmadığından dolayı matrisler toplanamaz.");
+		printf("Ãki matrisin satÃ½r ve sutun sayÃ½sÃ½ eÃ¾it olmadÃ½Ã°Ã½ndan dolayÃ½ matrisler toplanamaz.");
 		return 0;
 	}
 }
@@ -87,7 +87,7 @@ int** matris_carp(int** matris1, int satir1, int sutun1,
 	}
 	else
 	{
-		printf("Birinci matrisin sütun sayısı ile ikinci matrisin satır sayısı eşit olmadığından dolayı matrisler çarpılamaz.");
+		printf("Birinci matrisin sÃ¼tun sayÃ½sÃ½ ile ikinci matrisin satÃ½r sayÃ½sÃ½ eÃ¾it olmadÃ½Ã°Ã½ndan dolayÃ½ matrisler Ã§arpÃ½lamaz.");
 		return 0;
 	}
 }
@@ -101,14 +101,14 @@ int main()
 
 	int satir1, sutun1, satir2, sutun2;
 
-	printf("Satır sayısını giriniz: ");
+	printf("SatÃ½r sayÃ½sÃ½nÃ½ giriniz: ");
 	scanf_s("%d", &satir1);
-	printf("Sütun sayısını giriniz: ");
+	printf("SÃ¼tun sayÃ½sÃ½nÃ½ giriniz: ");
 	scanf_s("%d", &sutun1);
 
-	printf("Satır sayısını giriniz: ");
+	printf("SatÃ½r sayÃ½sÃ½nÃ½ giriniz: ");
 	scanf_s("%d", &satir2);
-	printf("Sütun sayısını giriniz: ");
+	printf("SÃ¼tun sayÃ½sÃ½nÃ½ giriniz: ");
 	scanf_s("%d", &sutun2);
 
 	matris_olustur(&matris1, satir1, sutun1);
