@@ -1,3 +1,4 @@
+//AS
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -17,7 +18,7 @@ int main()
 	int sutunSayisi;
 	int* ptr;
 
-	printf("Sütun sayısını giriniz: ");
+	printf("SÃ¼tun sayÃ½sÃ½nÃ½ giriniz: ");
 	scanf_s("%d", &sutunSayisi);
 
 	bir_boyutlu_matris_olustur(&ptr, sutunSayisi);
