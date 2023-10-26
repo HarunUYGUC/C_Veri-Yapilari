@@ -138,9 +138,15 @@ int main()
 	add_node_tail(30);
 
 	write();
+	printf("-------------- \n");
 
 	delete(7);
 	write();
+	printf("-------------- \n");
+
+	delete(55);
+	write();
+	printf("-------------- \n");
 
 	delete(30);
 	delete(15);
@@ -149,16 +155,16 @@ int main()
 	delete(16);
 	delete(19);
 	write();
-
-	delete(55);
-	write();
+	printf("-------------- \n");
 
 	delete(15);
 	write();
+	printf("-------------- \n");
 
 	add_node_tail(5);
 	add_node_tail(7);
 	write();
+	printf("-------------- \n");
 
 	add_node_head(3);
 	add_node_head(1);
