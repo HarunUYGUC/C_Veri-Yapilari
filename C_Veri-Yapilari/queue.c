@@ -56,6 +56,7 @@ int display()
 	}
 
 	printf("\n");
+	return 1;
 }
 
 // Dequeue (Eleman Sil)
@@ -71,6 +72,7 @@ int dequeue()
 	struct node* temp = front;
 	front = front->next;
 	free(temp);
+	return 1;
 }
 
 // Main
