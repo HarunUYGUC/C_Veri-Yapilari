@@ -36,29 +36,6 @@ void enqueue(int data)
 	}
 }
 
-// Display Queue
-int display()
-{
-	// Queue is empty.
-	if (front == NULL)
-	{
-		printf("Queue is empty. \n");
-		return 1;
-	}
-
-	printf("Queue: ");
-	struct node* index = front;
-
-	while (index != NULL)
-	{
-		printf("%d - ", index->data);
-		index = index->next;
-	}
-
-	printf("\n");
-	return 1;
-}
-
 // Dequeue (Eleman Sil)
 int dequeue()
 {
@@ -69,9 +46,34 @@ int dequeue()
 		return 1;
 	}
 
+	// Queue isn't empty.
 	struct node* temp = front;
 	front = front->next;
 	free(temp);
+	return 1;
+}
+
+// Display Queue
+int display()
+{
+	// Queue is empty.
+	if (front == NULL)
+	{
+		printf("Queue is empty. \n");
+		return 1;
+	}
+
+	// Queue isn't empty.
+	printf("Queue: ");
+	struct node* index = front;
+
+	while (index != NULL)
+	{
+		printf("%d - ", index->data);
+		index = index->next;
+	}
+
+	printf("\n");
 	return 1;
 }
 
