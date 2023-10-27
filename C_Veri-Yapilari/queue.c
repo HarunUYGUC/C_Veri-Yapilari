@@ -37,7 +37,7 @@ void enqueue(int data)
 }
 
 // Display Queue
-void display()
+int display()
 {
 	// Queue is empty.
 	if (front == NULL)
