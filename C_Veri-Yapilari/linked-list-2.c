@@ -140,10 +140,12 @@ int main()
 	write();
 	printf("-------------- \n");
 
+	// Deleting a data from the head.
 	delete(7);
 	write();
 	printf("-------------- \n");
 
+	// Deleting data that is not in the list.
 	delete(55);
 	write();
 	printf("-------------- \n");
@@ -157,6 +159,7 @@ int main()
 	write();
 	printf("-------------- \n");
 
+	// Trying to delete a data when the list is empty.
 	delete(15);
 	write();
 	printf("-------------- \n");
@@ -168,6 +171,18 @@ int main()
 
 	add_node_head(3);
 	add_node_head(1);
+	add_node_tail(9);
+	write();
+
+	// Deleting a data from the tail.
+	printf("-------------- \n");
+	delete(9);
+	write();
+
+	// Deleting a data that is somewhere in the middle.
+	printf("-------------- \n");
+	delete(5);
+	delete(3);
 	write();
 
 	return 1;
