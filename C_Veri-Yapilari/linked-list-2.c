@@ -59,6 +59,37 @@ void add_node_head(int data)
 	}
 }
 
+// Add Node Somewhere in the Middle.
+int add_node_sw_mid(int data, int front_which_data)
+{
+	struct node* index = NULL;
+
+	struct node* willBeInsertedMid = (struct node*)malloc(sizeof(struct node));
+	willBeInsertedMid->data = data;
+	
+	index = head;
+
+	if (index->data == front_which_data)
+	{
+		printf("It is not possible to add to the beginning with this function. Use the 'add_node head()' function for this. \n");
+		return 1;
+	}
+
+	// It holds the data before the data we want to add.
+	while (index->next->data != front_which_data)
+	{
+		index = index->next;
+	}
+
+	struct node* willBeInsertedFront = (struct node*)malloc(sizeof(struct node));
+	willBeInsertedFront = index->next;
+
+	index->next = willBeInsertedMid;
+	willBeInsertedMid->next = willBeInsertedFront;
+
+	return 1;
+}
+
 // Write
 void write()
 {
@@ -183,6 +214,17 @@ int main()
 	printf("-------------- \n");
 	delete(5);
 	delete(3);
+	write();
+
+	// The desired data will be added in front of the desired data.
+	printf("-------------- \n");
+	add_node_sw_mid(54, 7);
+	add_node_sw_mid(78, 54);
+	write();
+
+	// It is not possible to add to the beginning with this function. Use the 'add_node head()' function for this.
+	printf("-------------- \n");
+	add_node_sw_mid(9, 1);
 	write();
 
 	return 1;
