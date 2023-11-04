@@ -155,6 +155,26 @@ int delete(int data)
 	return 1;
 }
 
+// Reverse Linked List
+void reverse()
+{
+	printf("Reversed ");
+
+	struct node* temp;
+	struct node* prev = NULL;
+	struct node* index = head;
+
+	while (index != NULL)
+	{
+		temp = index->next;
+		index->next = prev;
+		prev = index;
+		index = temp;
+	}
+
+	head = prev;
+}
+
 int main()
 {
 	add_node_tail(10);
@@ -224,6 +244,16 @@ int main()
 	// It is not possible to add to the beginning with this function. Use the 'add_node head()' function for this.
 	printf("-------------- \n");
 	add_node_sw_mid(9, 1);
+	write();
+
+	printf("-------------- \n");
+	add_node_head(88);
+	add_node_head(79);
+	add_node_tail(64);
+	add_node_sw_mid(46, 64);
+	write();
+
+	reverse();
 	write();
 
 	return 1;
