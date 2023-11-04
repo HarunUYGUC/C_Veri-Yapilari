@@ -62,12 +62,10 @@ void add_node_head(int data)
 // Add Node Somewhere in the Middle.
 int add_node_sw_mid(int data, int front_which_data)
 {
-	struct node* index = NULL;
-
 	struct node* willBeInsertedMid = (struct node*)malloc(sizeof(struct node));
 	willBeInsertedMid->data = data;
-	
-	index = head;
+
+	struct node* index = head;
 
 	if (index->data == front_which_data)
 	{
