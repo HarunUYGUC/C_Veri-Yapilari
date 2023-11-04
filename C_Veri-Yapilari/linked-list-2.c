@@ -67,6 +67,7 @@ int add_node_sw_mid(int data, int front_which_data)
 
 	struct node* index = head;
 
+	// It is not possible to add in front of the first data of the list.
 	if (index->data == front_which_data)
 	{
 		printf("It is not possible to add to the beginning with this function. Use the 'add_node head()' function for this. \n");
