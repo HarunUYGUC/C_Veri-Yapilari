@@ -120,16 +120,97 @@ void write()
 	}
 }
 
+// Delete Node from Head
+void delete_head()
+{
+	// Doubly Linked List is empty.
+	if (head == NULL)
+	{
+		printf("\n Liste zaten boþ.");
+		return;
+	}
+
+	// Delete Node from Tail
+	if (head->next == NULL)
+	{
+		free(head);
+		head = NULL;
+		return;
+	}
+
+	// Delete Node from Head
+	struct node* second = head->next;
+	free(head);
+	second->prev = NULL;
+	head = second;
+}
+
+// Delete Node from Tail
+void delete_tail()
+{
+	// Doubly Linked List is empty.
+	if (head == NULL)
+	{
+		printf("\n Liste zaten boþ.");
+		return;
+	}
+
+	// Delete Node from Head
+	if (head->next == NULL)
+	{
+		delete_head();
+		return;
+	}
+
+	// Delete Node from Tail
+	struct node* temp = head;
+
+	while (temp->next != NULL)
+	{
+		temp = temp->next;
+	}
+
+	struct node* previous = temp->prev;
+	free(temp);
+	previous->next = NULL;
+}
+
+// Delete Node Somewhere in the Middle
+void delete_node_sw_mid(int data)
+{
+	struct node* temp = head;
+
+	while (temp->next != NULL)
+	{
+		if (temp->data == data)
+		{
+			break;
+		}
+
+		temp = temp->next;
+	}
+
+	struct node* following = temp->next;
+	struct node* previous = temp->prev;
+	free(temp);
+
+	previous->next = following;
+	following->prev = previous;
+}
+
 int main()
 {
 	// Menu Created
-	int i, choice, num, num1;
+	int choice, num, num1;
 
 	while (1)
 	{
 		printf("\n 1: Sona Eleman Ekleme");
 		printf("\n 2: Baþa Eleman Ekleme");
 		printf("\n 3: Araya Eleman Ekleme");
+		printf("\n 4: Baþtan Eleman Sil");
+		printf("\n 5: Sondan Eleman Sil");
+		printf("\n 6: Aradan Eleman Sil");
 		printf("\n Seçiminizi Yapýn...");
 		scanf_s("%d", &choice);
 
@@ -159,6 +240,24 @@ int main()
 			scanf_s("%d", &num1);
 
 			add_node_sw_mid(num, num1);
+			write();
+
+			break;
+		case 4:
+			delete_head();
+			write();
+
+			break;
+		case 5:
+			delete_tail();
+			write();
+
+			break;
+		case 6:
+			printf("Silinmesini istediðiniz elemaný girin...");
+			scanf_s("%d", &num);
+
+			delete_node_sw_mid(num);
 			write();
 
 			break;
