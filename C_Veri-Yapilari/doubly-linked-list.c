@@ -86,9 +86,9 @@ void add_node_sw_mid(int data, int front_which_data)
 	{
 		add_node_head(data);
 	}
+	// Doubly Linked List isn't empty. Add Node Somewhere in the Middle
 	else
 	{
-		// Doubly Linked List isn't empty. Add Node Somewhere in the Middle
 		while (temp->next != NULL)
 		{
 			if (temp->data == front_which_data)
