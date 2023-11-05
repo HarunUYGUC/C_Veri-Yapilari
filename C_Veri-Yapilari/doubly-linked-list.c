@@ -9,9 +9,11 @@ struct node
 	struct node* prev;
 };
 
+// Head & Tail
 struct node* head = NULL;
 struct node* tail = NULL;
 
+// Create Node (Automated)
 struct node* create_node(int data)
 {
 	struct node* new = (struct node*)malloc(sizeof(struct node));
@@ -33,6 +35,7 @@ void add_node_tail(int data)
 		head = new;
 	}
 	// Doubly Linked List isn't empty. (Traverse (Dolaþmak) iþlemi yapýlýr.)
+	// Traverse iþleminde elimizdeki node'u kaybetmemek için node'umuzu geçici bir node'a atayýp onunla iþlem yapýyoruz.
 	else
 	{
 		struct node* temp = head;
@@ -78,13 +81,14 @@ void add_node_sw_mid(int data, int front_which_data)
 	{
 		head = willBeInsertedMid;
 	}
+	// Add Node to Head
 	else if (head->data == willBeInsertedMid)
 	{
 		add_node_head(data);
 	}
 	else
 	{
-		// Doubly Linked List isn't empty.
+		// Doubly Linked List isn't empty. Add Node Somewhere in the Middle
 		while (temp->next != NULL)
 		{
 			if (temp->data == front_which_data)
