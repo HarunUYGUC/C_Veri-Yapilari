@@ -33,29 +33,8 @@ void push(int data)
 	}
 }
 
-// Display
-int display()
-{
-	// Stack is empty.
-	if (top == NULL)
-	{
-		printf("Stack is empty. \n");
-		return 1;
-	}
-
-	// Stack isn't empty.
-	struct node* index = top;
-
-	while (index != NULL)
-	{
-		printf("%d - ", index->data);
-		index = index->next;
-	}
-
-	printf("\n");
-
-	return 1;
-}
+// Fonksiyonu int veri tipinde veri dönüþü olacak þekilde tanýmlamak yerine void olarak tanýmlayýp 
+// if bloðundaki return'ü kaldýrýrsak if bloðundan sonraki kodlarý else bloðuna almalýyýz.
 
 // Pop
 int pop()
@@ -69,11 +48,32 @@ int pop()
 
 	// Stack isn't empty.
 	struct node* temp = top;
-
 	top = top->next;
-
 	free(temp);
+	return 1;
+}
 
+// Display
+int display()
+{
+	// Stack is empty.
+	if (top == NULL)
+	{
+		printf("Stack is empty. \n");
+		return 1;
+	}
+
+	// Stack isn't empty.
+	printf("Stack: ");
+	struct node* index = top;
+
+	while (index != NULL)
+	{
+		printf("%d - ", index->data);
+		index = index->next;
+	}
+
+	printf("\n");
 	return 1;
 }
 
