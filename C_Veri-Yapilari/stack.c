@@ -11,6 +11,7 @@ struct node
 // Top
 struct node* top = NULL;
 
+// Push
 void push(int data)
 {
 	// Stack is empty.
