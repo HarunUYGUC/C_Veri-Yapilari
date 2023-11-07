@@ -36,6 +36,7 @@ void push(int data)
 
 // Fonksiyonu int veri tipinde veri dönüþü olacak þekilde tanýmlamak yerine void olarak tanýmlayýp 
 // if bloðundaki return'ü kaldýrýrsak if bloðundan sonraki kodlarý else bloðuna almalýyýz.
+// Tabii ki de if bloðudan sonraki return'ü de kaldýrmalýyýz.
 
 // Pop
 int pop()
