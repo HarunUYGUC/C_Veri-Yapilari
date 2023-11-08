@@ -198,9 +198,9 @@ void delete_node_sw_mid(int data)
 	following->prev = previous;
 }
 
+// Menu
 int main()
 {
-	// Menu Created
 	int choice, num, num1;
 
 	while (1)
