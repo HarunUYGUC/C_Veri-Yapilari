@@ -62,7 +62,7 @@ struct node* add(struct node* node, int data)
 	return node;
 }
 
-// Main
+// Menu
 int main()
 {
 	int choice;
