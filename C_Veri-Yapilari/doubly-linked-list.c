@@ -211,6 +211,7 @@ int main()
 		printf("\n 4: Baþtan Eleman Sil");
 		printf("\n 5: Sondan Eleman Sil");
 		printf("\n 6: Aradan Eleman Sil");
+
 		printf("\n Seçiminizi Yapýn...");
 		scanf_s("%d", &choice);
 
@@ -222,7 +223,6 @@ int main()
 
 			add_node_tail(num);
 			write();
-
 			break;
 		case 2:
 			printf("\n Baþa eklemek istediðiniz elemaný girin...");
@@ -230,7 +230,6 @@ int main()
 
 			add_node_head(num);
 			write();
-
 			break;
 		case 3:
 			printf("\n Araya eklemek istediðiniz elemaný girin...");
@@ -241,17 +240,14 @@ int main()
 
 			add_node_sw_mid(num, num1);
 			write();
-
 			break;
 		case 4:
 			delete_head();
 			write();
-
 			break;
 		case 5:
 			delete_tail();
 			write();
-
 			break;
 		case 6:
 			printf("Silinmesini istediðiniz elemaný girin...");
@@ -259,7 +255,6 @@ int main()
 
 			delete_node_sw_mid(num);
 			write();
-
 			break;
 		}
 	}
