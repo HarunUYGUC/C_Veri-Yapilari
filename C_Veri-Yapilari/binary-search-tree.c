@@ -29,26 +29,15 @@ struct node* create_node(int data)
 	return new;
 }
 
-// Inorder
-void inorder(struct node* root)
-{
-	if (root != NULL)
-	{
-		inorder(root->left);
-		printf("%d - ", root->data);
-		inorder(root->right);
-	}
-}
-
 // Add
 struct node* add(struct node* node, int data)
-{	
+{
 	// Binary Search Tree is empty.
 	if (node == NULL)
 	{
 		return create_node(data);
 	}
-	
+
 	// We compare the data we will add with the data in the node.
 	if (data < node->data)
 	{
@@ -60,6 +49,39 @@ struct node* add(struct node* node, int data)
 	}
 
 	return node;
+}
+
+// Preorder
+void preorder(struct node* root)
+{
+	if (root != NULL)
+	{
+		printf("%d - ", root->data);
+		preorder(root->left);
+		preorder(root->right);
+	}
+}
+
+// Inorder
+void inorder(struct node* root)
+{
+	if (root != NULL)
+	{
+		inorder(root->left);
+		printf("%d - ", root->data);
+		inorder(root->right);
+	}
+}
+
+// Postorder
+void postorder(struct node* root)
+{
+	if (root != NULL)
+	{
+		postorder(root->left);
+		postorder(root->right);
+		printf("%d - ", root->data);
+	}
 }
 
 // Search
@@ -106,8 +128,10 @@ int main()
 	while (1)
 	{
 		printf("\n 1- Sayý ekle...");
-		printf("\n 2- Inorder traversal...");
-		printf("\n 3- Arama yap...");
+		printf("\n 2- Preorder traversal...");
+		printf("\n 3- Inorder traversal...");
+		printf("\n 4- Postorder traversal...");
+		printf("\n 5- Arama yap...");
 
 		printf("\n Seçiminizi yapýn...");
 		scanf_s("%d", &choice);
@@ -121,9 +145,15 @@ int main()
 			add(root, choice);
 			break;
 		case 2:
-			inorder(root);
+			preorder(root);
 			break;
 		case 3:
+			inorder(root);
+			break;
+		case 4:
+			postorder(root);
+			break;
+		case 5:
 			printf("\n Hangi sayýyý aramak istiyorsunuz?...");
 			scanf_s("%d", &choice);
 
