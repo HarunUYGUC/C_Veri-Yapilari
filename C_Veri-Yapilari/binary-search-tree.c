@@ -130,7 +130,8 @@ int number_of_nonleaf_nodes(struct node* root)
 }
 
 // Number of Leaves
-int number_of_leaves(struct node* root) {
+int number_of_leaves(struct node* root) 
+{
 	if (root == NULL)
 		return 0;
 	if (root->left == NULL && root->right == NULL)
@@ -140,7 +141,8 @@ int number_of_leaves(struct node* root) {
 }
 
 // Number of Nodes
-int number_of_nodes(struct node* root) {
+int number_of_nodes(struct node* root) 
+{
 	if (root == NULL) 
 		return 0;
 
