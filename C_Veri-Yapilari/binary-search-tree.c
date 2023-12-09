@@ -120,6 +120,75 @@ struct node* search(int data)
 	return current;
 }
 
+// Number of Non-leaf Nodes (Parents)
+int number_of_nonleaf_nodes(struct node* root)
+{ 
+	if (root == NULL || root->left == NULL && root->right == NULL)
+		return 0;
+		
+	return 1 + number_of_nonleaf_nodes(root->left) + number_of_nonleaf_nodes(root->right);
+}
+
+// Number of Leaves
+int number_of_leaves(struct node* root) {
+	if (root == NULL)
+		return 0;
+	if (root->left == NULL && root->right == NULL)
+		return 1;
+	else 
+		return number_of_leaves(root->left) + number_of_leaves(root->right);
+}
+
+// Number of Nodes
+int number_of_nodes(struct node* root) {
+	if (root == NULL) 
+		return 0;
+
+	return 1 + number_of_nodes(root->left) + number_of_nodes(root->right);
+}
+
+// Destroy
+void destroy(struct node* root) 
+{
+	if (root != NULL) 
+	{
+		destroy(&root->left);
+		destroy(&root->right);
+
+		free(root);
+		root = NULL;
+	}
+}
+
+// Shortest Path Length
+int shortest_path_lenght(struct node* root) 
+{
+	int left, right, small, big;
+
+	if (root == NULL) 
+		return 0;
+
+	//  if (root->sol==NULL && root->sag==NULL) return 1;
+	left = shortest_path_lenght(root->left);
+	right = shortest_path_lenght(root->right);
+
+	if (left < right)
+	{
+		small = left;
+		big = right;
+	}
+	else 
+	{
+		small = right;
+		big = left;
+	}
+
+	if (root->left != NULL && root->right != NULL)
+		return small + 1;
+
+	return big + 1;
+}
+
 // Menu
 int main()
 {
@@ -127,11 +196,16 @@ int main()
 
 	while (1)
 	{
-		printf("\n 1- Sayý ekle...");
+		printf("\n 1- Sayi ekle...");
 		printf("\n 2- Preorder traversal...");
 		printf("\n 3- Inorder traversal...");
 		printf("\n 4- Postorder traversal...");
 		printf("\n 5- Arama yap...");
+		printf("\n 6- Ic dugum sayisi (Yaprak olmayan (Yani Parents))...");
+		printf("\n 7- Yaprak sayisi...");
+		printf("\n 8- Dugum sayisi...");
+		printf("\n 9- Agaci yok et...");
+		printf("\n 10- En kisa yol uzunlugu...");
 
 		printf("\n Seçiminizi yapýn...");
 		scanf_s("%d", &choice);
@@ -139,7 +213,7 @@ int main()
 		switch (choice)
 		{
 		case 1:
-			printf("\n Girmek istediðiniz sayý...");
+			printf("\n Girmek istediginiz sayi...");
 			scanf_s("%d", &choice);
 
 			add(root, choice);
@@ -154,10 +228,25 @@ int main()
 			postorder(root);
 			break;
 		case 5:
-			printf("\n Hangi sayýyý aramak istiyorsunuz?...");
+			printf("\n Hangi sayiyi aramak istiyorsunuz?...");
 			scanf_s("%d", &choice);
 
 			search(choice);
+			break;
+		case 6:
+			printf("%d", number_of_nonleaf_nodes(root));
+			break;
+		case 7:
+			printf("%d", number_of_leaves(root));
+			break;
+		case 8:
+			printf("%d", number_of_nodes(root));
+			break;
+		case 9:
+			destroy(root);
+			break;
+		case 10:
+			printf("%d", shortest_path_lenght(root));
 			break;
 		}
 	}
