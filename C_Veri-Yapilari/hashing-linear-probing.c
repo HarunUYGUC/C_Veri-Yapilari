@@ -115,7 +115,7 @@ int main()
 	insert(221);
 	yazdir();
 
-	// Dizi doldu.
+	// Dizi dolu. Ekleyemeyiz.
 	insert(666);
 	yazdir();
 
