@@ -99,7 +99,7 @@ int main()
 {
 	yazdir();
 
-	// Çakışma yok. Aynı indise eklenir.
+	// Çakışma yok. Olması gereken indise eklenir.
 	insert(10);
 	insert(11);
 	insert(22);
